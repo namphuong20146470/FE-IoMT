@@ -55,10 +55,10 @@ const Map = () => {
         prevLocations.map((location) =>
           location.roomId === '62616bb00aa850983c21b11b'
             ? {
-                ...location,
-                latitude: data.lat || location.latitude,
-                longitude: data.lon || location.longitude,
-              }
+              ...location,
+              latitude: data.lat || location.latitude,
+              longitude: data.lon || location.longitude,
+            }
             : location
         )
       );

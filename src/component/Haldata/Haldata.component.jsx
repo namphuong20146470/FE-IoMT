@@ -7,7 +7,7 @@ const Haldata = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+
   // State for chart data
   const [chartData, setChartData] = useState({
     labels: [],
@@ -26,7 +26,7 @@ const Haldata = () => {
       } else {
         setData([response.data]);
       }
-      
+
       // Update chart data
       const currentTime = new Date().toLocaleTimeString();
       const currentValue1 = response.data.currentValue; // Assuming this is the current power value
@@ -38,8 +38,8 @@ const Haldata = () => {
         labels: [...prevData.labels, currentTime],
         powerData: [...prevData.powerData, currentValue1], // Công suất
         currentData: [...prevData.currentData, currentAmperage], // Cường độ dòng điện
-    }));
-    
+      }));
+
 
     } catch (error) {
       setError('Error fetching sensor data.');

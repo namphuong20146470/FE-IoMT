@@ -14,7 +14,7 @@ const TemperatureMonitor = () => {
   useEffect(() => {
     const checkTemperature = async () => {
       try {
-        const response = await axios.get('https://iomt.hoangphucthanh.vn/index.php?latest');
+        const response = await axios.get('https://192.168.0.39/sensor-data-lasted-short');
         const data = response.data;
         console.log('Fetched data:', data);
 
