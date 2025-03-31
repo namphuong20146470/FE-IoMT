@@ -1,26 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './SensorData.css';  // Import CSS
+import './SensorData.css'; // Import CSS
 
 const SensorData = () => {
     const [data, setData] = useState({});
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
     const fetchSensorData = async () => {
         try {
             const response = await axios.get('https://iomt.hoangphucthanh.vn/index.php?latest');
             console.log('Sensor Data:', response.data);
             setData(response.data);
+            setLoading(false);
         } catch (error) {
             console.error('Error fetching sensor data:', error);
+            setError('Failed to load data');
+            setLoading(false);
         }
     };
 
     useEffect(() => {
         fetchSensorData();
         const intervalId = setInterval(fetchSensorData, 5000);
-
         return () => clearInterval(intervalId);
     }, []);
+
+    if (loading) return <p className="loading">Loading sensor data...</p>;
+    if (error) return <p className="error">{error}</p>;
 
     return (
         <div className="sensor-data-container">
@@ -75,7 +82,6 @@ const SensorData = () => {
                 <div className="sensor-data-item">
                     <p className="label">Operation Time</p>
                     <p className="value">{data.opr_time || 'N/A'}</p>
-                    {/* <p className="unit">h</p> */}
                 </div>
                 <div className="sensor-data-item">
                     <p className="label">Update Time</p>

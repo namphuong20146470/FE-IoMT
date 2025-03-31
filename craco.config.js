@@ -1,11 +1,17 @@
-// craco.config.js
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const webpack = require('webpack'); // Make sure to add this import
 
 module.exports = {
   webpack: {
     configure: (webpackConfig) => {
-      // Add cesium as a webpack alias
+      // Add these lines to fix react-refresh error
+      webpackConfig.resolve.modules = [
+        path.resolve(__dirname, 'src'),
+        'node_modules'
+      ];
+      
+      // Existing cesium configuration
       webpackConfig.resolve.alias['cesium'] = path.resolve(__dirname, 'node_modules/cesium/Source');
 
       // Copy Cesium Assets, Widgets, and Plugins to the public folder

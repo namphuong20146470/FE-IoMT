@@ -1,73 +1,181 @@
-.sensor-data-container {
-    max-width: 1400px; /* Tăng độ rộng nhưng vẫn giữ sự cân đối */
-    margin: 40px auto;
-    padding: 30px;
-    background-color: #ffffff;
-    border-radius: 16px;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-}
-
-.sensor-data-container h3 {
-    font-size: 30px;
-    margin-bottom: 20px;
-    color: #007bff;
-    text-align: center;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-.sensor-data-grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(200px, 1fr)); /* 4 ô mỗi dòng */
-    gap: 12px; /* Giảm khoảng cách giữa các ô */
-    padding: 10px;
-}
-
-.sensor-data-item {
-    background-color: #f0f4f8;
-    border-radius: 10px;
+/* SensorData.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1a252f; /* Màu nền tối giống hình */
+    color: #ecf0f1;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  
+  /* Font Import */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+  
+  /* Container Styles */
+  .sensor-data-container {
+    max-width: 1200px;
+    margin: 20px auto;
     padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-    text-align: center;
-    position: relative;
+    background: #2c3e50; /* Màu nền card chính */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     overflow: hidden;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    border: 1px solid #e0e0e0; /* Đường viền nhẹ để tạo điểm nhấn */
-}
-
-.sensor-data-item:hover {
-    transform: scale(1.05); /* Hiệu ứng phóng to nhẹ khi hover */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-
-.sensor-data-item .label {
-    font-weight: 600;
-    color: #0056b3;
-    font-size: 17px;
-    margin-bottom: 6px;
-    text-transform: uppercase;
-}
-
-.sensor-data-item .value {
+  }
+  
+  /* Title Styles */
+  .sensor-data-container h3 {
     font-size: 24px;
-    color: #333;
-    margin: 8px 0;
-    font-weight: bold;
-}
-
-.sensor-data-item .unit {
-    font-size: 14px;
-    color: #777;
-    font-style: italic;
-}
-
-.loading, .error {
+    font-weight: 700;
+    color: #ecf0f1;
     text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  /* Grid Layout */
+  .sensor-data-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 cột cố định */
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  /* Sensor Data Item */
+  .sensor-data-item {
+    background: #34495e; /* Màu nền các card con */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    aspect-ratio: 1 / 1; /* Đảm bảo tỷ lệ vuông */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .sensor-data-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Label Styles */
+  .sensor-data-item .label {
+    font-size: 12px;
+    color: #bdc3c7;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    font-weight: 500;
+    white-space: nowrap; /* Ngăn label xuống dòng */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Value Styles */
+  .sensor-data-item .value {
     font-size: 20px;
-    color: #555;
-    margin-top: 20px;
-}
-
-.error {
-    color: #d9534f;
-}
+    font-weight: 700;
+    color: #ecf0f1;
+    margin-bottom: 5px;
+    word-break: break-word; /* Cho phép xuống dòng nếu giá trị dài */
+  }
+  
+  /* Unit Styles */
+  .sensor-data-item .unit {
+    font-size: 10px;
+    color: #7f8c8d;
+    font-weight: 400;
+  }
+  
+  /* Loading and Error States */
+  .loading, .error {
+    text-align: center;
+    font-size: 18px;
+    color: #e74c3c;
+    padding: 20px;
+  }
+  
+  /* Decorative Elements (Inspired by Image) */
+  .sensor-data-container::before {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #3498db, #2980b9);
+    border-radius: 50%;
+    top: -50px;
+    left: -50px;
+    opacity: 0.3;
+    z-index: 0;
+  }
+  
+  .sensor-data-container::after {
+    content: '';
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, #e74c3c, #c0392b);
+    border-radius: 50%;
+    bottom: -75px;
+    right: -75px;
+    opacity: 0.2;
+    z-index: 0;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .sensor-data-grid {
+      grid-template-columns: repeat(3, 1fr); /* Giảm xuống 3 cột */
+    }
+  
+    .sensor-data-item {
+      aspect-ratio: 1 / 1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .sensor-data-grid {
+      grid-template-columns: repeat(2, 1fr); /* Giảm xuống 2 cột */
+    }
+  
+    .sensor-data-container h3 {
+      font-size: 20px;
+    }
+  
+    .sensor-data-item .value {
+      font-size: 18px;
+    }
+  
+    .sensor-data-item .label {
+      font-size: 10px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .sensor-data-grid {
+      grid-template-columns: 1fr; /* 1 cột trên mobile */
+    }
+  
+    .sensor-data-container h3 {
+      font-size: 18px;
+    }
+  
+    .sensor-data-item .value {
+      font-size: 16px;
+    }
+  
+    .sensor-data-item .label {
+      font-size: 9px;
+    }
+  
+    .sensor-data-item {
+      padding: 10px;
+    }
+  }
