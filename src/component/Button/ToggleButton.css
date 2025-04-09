@@ -1,0 +1,51 @@
+/* Container Styles */
+.toggle-button-container {
+    position: fixed;
+    bottom: 0; /* Đặt container ở cạnh dưới cùng của màn hình */
+    left: 50%;
+    transform: translateX(-50%); /* Căn giữa container */
+    display: flex;
+    flex-direction: row; /* Sắp xếp các nút theo hàng ngang */
+    gap: 10px; /* Khoảng cách giữa các nút */
+    z-index: 1000; /* Luôn nổi trên các phần tử khác */
+    padding: -3px 0;
+   
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+}
+
+/* Button Styles */
+.toggle-button {
+    display: flex;
+    flex-direction: column; /* Sắp xếp nội dung theo chiều dọc */
+    align-items: center; /* Căn giữa nội dung theo chiều ngang */
+    justify-content: center; /* Căn giữa nội dung theo chiều dọc */
+    text-align: center; /* Văn bản căn giữa */
+    padding: 8px 10px; /* Khoảng cách trong nút */
+    border: 1px solid #ddd; /* Viền nút */
+    border-radius: 8px; /* Bo góc nút */
+    background-color: #449eff; /* Nền nút */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); /* Hiệu ứng đổ bóng */
+    transition: all 0.3s ease; /* Hiệu ứng hover */
+    cursor: pointer; /* Con trỏ dạng nhấn */
+}
+
+
+/* Nút khi cuộn trang */
+.toggle-button-container.scrolled {
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1); /* Thêm hiệu ứng đổ bóng */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .toggle-button-container {
+        flex-direction: column; /* Các nút xếp chồng khi trên màn hình nhỏ */
+        bottom: 0; /* Đảm bảo sát đáy trên màn hình nhỏ */
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .toggle-button {
+        width: 100%;
+        padding: 12px 0;
+        margin-bottom: 5px; /* Khoảng cách nhỏ giữa các nút */
+    }
+}

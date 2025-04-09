@@ -1,0 +1,38 @@
+
+/* Thiết kế nút toggle */
+.toggle-button {
+  margin-bottom: 20px;
+  padding: 10px 20px;
+  background-color: #4A90E2;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.toggle-button:hover {
+  background-color: #357ABD;
+}
+
+/* Đặt kiểu cho hình ảnh */
+img {
+  width: 200px; /* Điều chỉnh kích thước chiều rộng */
+  height: auto; /* Tự động điều chỉnh chiều cao để giữ tỷ lệ */
+  margin: 10px 0; /* Thu nhỏ khoảng cách trên dưới */
+  border-radius: 4px; /* Giảm độ bo tròn các góc */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Giảm kích thước và độ mờ của bóng đổ */
+}
+
+
+/* Thiết kế cho từng trang */
+.page-container {
+  width: 80%;
+  max-width: 1200px;
+  margin: auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
